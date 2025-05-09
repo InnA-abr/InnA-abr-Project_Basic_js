@@ -265,11 +265,15 @@ const sortStorageKey = "sortStorageKey";
 const categoryStorageKey = "categoryStorageKey";
 const directionStorageKey = "directionStorageKey";
 
-let sortValue, categoryFilterValue, directionFilterValue;
+let sortValue = "default";
+let categoryFilterValue = "all";
+let directionFilterValue = "all";
 
-sortValue = localStorage.getItem(sortStorageKey);
-categoryFilterValue = localStorage.getItem(categoryStorageKey);
-directionFilterValue = localStorage.getItem(directionStorageKey);
+sortValue = localStorage.getItem(sortStorageKey) || sortValue;
+categoryFilterValue =
+  localStorage.getItem(categoryStorageKey) || categoryFilterValue;
+directionFilterValue =
+  localStorage.getItem(directionStorageKey) || directionFilterValue;
 
 function renderCards() {
   let dataArray = [...DATA];
